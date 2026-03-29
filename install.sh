@@ -14,6 +14,9 @@ install_tool() {
     echo "  installed: $name -> $INSTALL_DIR/$name"
 }
 
+echo "Installing Python dependencies..."
+pip install -q -r "$REPO_DIR/requirements.txt"
+echo ""
 echo "Installing cli-tools to $INSTALL_DIR..."
 
 install_tool "$REPO_DIR/csvview/csvview.py"                       csvview
