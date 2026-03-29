@@ -9,6 +9,7 @@ Personal collection of terminal utilities.
 | `csvview` | Display CSV files as formatted tables in the terminal |
 | `fast-monitor` | Monitor and log internet speed using fast.com |
 | `speedtest-monitor` | Monitor and log internet speed using speedtest.net |
+| `compressimg` | Compress images by percentage or target resolution |
 
 ## Install
 

@@ -1,0 +1,13 @@
+.DS_Store
+
+# compressimg - ignore image files
+compressimg/*.jpg
+compressimg/*.jpeg
+compressimg/*.png
+compressimg/*.webp
+compressimg/*.gif
+compressimg/*.bmp
+compressimg/*.tiff
+compressimg/*.tif
+compressimg/*.heic
+compressimg/*.heif

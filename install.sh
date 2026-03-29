@@ -19,6 +19,7 @@ echo "Installing cli-tools to $INSTALL_DIR..."
 install_tool "$REPO_DIR/csvview/csvview.py"                       csvview
 install_tool "$REPO_DIR/fast-monitor/fast-monitor.py"             fast-monitor
 install_tool "$REPO_DIR/speedtest-monitor/speedtest-monitor.py"   speedtest-monitor
+install_tool "$REPO_DIR/compressimg/compressimg.py"               compressimg
 
 # Warn if INSTALL_DIR is not in PATH
 if [[ ":$PATH:" != *":$INSTALL_DIR:"* ]]; then
