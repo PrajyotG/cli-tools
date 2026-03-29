@@ -101,6 +101,12 @@ def display(headers, rows, limit=None, no_color=False, average=False):
     YELLOW = "\033[93m" if not no_color else ""
     RESET = "\033[0m" if not no_color else ""
 
+    if skipped:
+        skip_msg = f"  ··· {skipped} row{'s' if skipped != 1 else ''} above ···"
+        inner_width = sum(w + 3 for w in widths) - 1
+        if len(skip_msg) > inner_width:
+            widths[0] += len(skip_msg) - inner_width
+
     top = separator(widths, "┌", "┬", "┐")
     mid = separator(widths, "├", "┼", "┤")
     skip_sep = separator(widths, "╞", "╪", "╡", "═")
@@ -112,7 +118,6 @@ def display(headers, rows, limit=None, no_color=False, average=False):
 
     if skipped:
         inner_width = sum(w + 3 for w in widths) - 1
-        skip_msg = f"  ··· {skipped} row{'s' if skipped != 1 else ''} above ···"
         print(YELLOW + "│" + skip_msg.ljust(inner_width) + "│" + RESET)
         print(CYAN + skip_sep + RESET)
 
@@ -145,6 +150,8 @@ def display(headers, rows, limit=None, no_color=False, average=False):
         print(f"  Showing last {shown} of {total} rows  (use --limit 0 to show all)")
     else:
         print(f"  {total} row{'s' if total != 1 else ''}  ·  {len(headers)} column{'s' if len(headers) != 1 else ''}")
+
+    return display_rows
 
 
 def stats(headers, rows):
@@ -210,10 +217,10 @@ def main():
             headers = [headers[i] for i in indices]
             rows = [[row[i] for i in indices if i < len(row)] for row in rows]
 
-    display(headers, rows, limit=args.limit, no_color=args.no_color, average=args.average)
+    visible_rows = display(headers, rows, limit=args.limit, no_color=args.no_color, average=args.average)
 
     if args.stats:
-        stats(headers, rows)
+        stats(headers, visible_rows)
 
 
 if __name__ == "__main__":
