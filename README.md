@@ -57,3 +57,15 @@ fast-monitor
 ```bash
 speedtest-monitor
 ```
+
+### compressimg
+
+```bash
+compressimg photo.jpg -s 50%              # shrink to 50% of original dimensions
+compressimg photo.jpg -s 1920x1080        # fit within 1920x1080, preserve aspect ratio
+compressimg *.png -s 75% -o compressed/  # batch compress PNGs into a folder
+compressimg photo.jpg -s 50% --dry-run   # preview without writing files
+compressimg photo.jpg -s 50% -q 90       # custom JPEG/WebP quality (default: 85)
+compressimg photo.jpg -s 1280x720 --suffix _hd  # custom output filename suffix
+compressimg photo.jpg -s 50% --overwrite  # overwrite original file
+```
