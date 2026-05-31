@@ -54,6 +54,8 @@ fast-monitor
 
 ### speedtest-monitor
 
+This is a test commit
+
 ```bash
 speedtest-monitor
 ```
